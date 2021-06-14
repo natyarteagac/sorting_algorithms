@@ -8,8 +8,8 @@
 
 void selection_sort(int *array, size_t size)
 {
-	unsigned int i = 0, j;
-	int min_indx, tmp;
+	unsigned int i = 0, j, min_indx;
+	int tmp;
 
 	/* Go through the array one by one*/
 	for (i = 0; i < size - 1; i++)
