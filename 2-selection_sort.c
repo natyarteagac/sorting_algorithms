@@ -11,6 +11,9 @@ void selection_sort(int *array, size_t size)
 	unsigned int i = 0, j, min_indx;
 	int tmp;
 
+	if (array == 0 || size == 0)
+		return;
+
 	/* Go through the array one by one*/
 	for (i = 0; i < size - 1; i++)
 	{
