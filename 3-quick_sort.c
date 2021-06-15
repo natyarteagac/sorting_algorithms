@@ -51,8 +51,8 @@ int partition(int *array, int low, int high, size_t size)
 /**
  * quicksort - sorts and array using recursion
  * @array: array of integers
- * @lower: first
- * @upper:
+ * @low: first index in the array 
+ * @high: last element in the array
  * @size: size of the array
  * 
 */
