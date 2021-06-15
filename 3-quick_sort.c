@@ -8,6 +8,8 @@
  */
 void quick_sort(int *array, size_t size)
 {
+	if (array == 0 || size == 0)
+		return;
 	/*Function that takes firts and last index in the array*/
 	quicksort(array, 0, size - 1, size);
 }
