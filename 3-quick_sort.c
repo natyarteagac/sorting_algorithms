@@ -32,7 +32,7 @@ int partition(int *array, int low, int high, size_t size)
 	for (j = low; j <= high - 1; j++)
 	{
 		/*Compare the elements*/
-		if (array[j] < pivot)
+		if (array[j] <= pivot)
 		{
 			i++;
 			/*Swapping*/
