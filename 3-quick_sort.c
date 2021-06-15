@@ -1,12 +1,11 @@
 #include "sort.h"
 /**
- * quick_sort-function that sorts and array in ascending
- * order using the Quick sort akgorithm
+ * quick_sort - function that sorts and array in ascending
+ * order using the Quick sort algorithm
  * @array: array of integers
  * @size: size of the array
+ * Return: void
  */
-
-
 void quick_sort(int *array, size_t size)
 {
 	/*Function that takes firts and last index in the array*/
@@ -16,24 +15,25 @@ void quick_sort(int *array, size_t size)
 /**
  * partition - parts the elements of the array
  * @array: array of integers
- * @low: first index in the array 
+ * @low: first index in the array
  * @high: last element in the array
+ * @size: Size of the array.
  * Return: smallest index
 */
 int partition(int *array, int low, int high, size_t size)
 {
 	int pivot = array[high]; /*pivot*/
-	int i = low - 1; // Index of smaller element and indicates the right position of pivot found so far
+	int i = low - 1;		 /* Position -1 of array to start */
 	int temp, j;
 
 	/* traverse the elements of the given array */
 	for (j = low; j <= high - 1; j++)
 	{
-		/* Compare each element with the pivot and
-		swap them for sorting */
+		/*Compare the elements*/
 		if (array[j] < pivot)
 		{
-			i++; // increment index of smaller element
+			i++;
+			/*Swapping*/
 			temp = array[i];
 			array[i] = array[j];
 			array[j] = temp;
@@ -41,35 +41,33 @@ int partition(int *array, int low, int high, size_t size)
 				print_array(array, size);
 		}
 	}
-	temp = array[i+1];
-	array[i+1] = array[high];
+	/*Swapping second time*/
+	temp = array[i + 1];
+	array[i + 1] = array[high];
 	array[high] = temp;
-	if (high != i+1)
+	if (high != i + 1)
 		print_array(array, size);
-	return (i+1);
+	return (i + 1);
 }
 /**
  * quicksort - sorts and array using recursion
  * @array: array of integers
- * @low: first index in the array 
- * @high: last element in the array
+ * @lower: first index in the array
+ * @upper: last element in the array
  * @size: size of the array
- * 
+ * Return: void
 */
 void quicksort(int *array, int lower, int upper, size_t size)
 {
 	int pi;
-	
-	if (lower < upper) 
-	 {
-		/* pi that returnes the partitioned place 
-		in the array */
+
+	if (lower < upper)
+	{
+		/*pi returns the partitioned array*/
 		pi = partition(array, lower, upper, size);
-		/*Recursion that sorts the elements on the
-		left of the pivot*/
+		/*Sorts the left elements of the array*/
 		quicksort(array, lower, pi - 1, size);
-		/*Recursion that sorts the elements on the 
-		right pivot*/
+		/*Sorts the right elements of the array*/
 		quicksort(array, pi + 1, upper, size);
 	}
 }
